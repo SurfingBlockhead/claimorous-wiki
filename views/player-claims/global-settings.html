@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Global Claim Settings - Claimorous! Wiki</title>
+    <base href="/claimorous-wiki/" />
+    <link rel="icon" type="image/x-icon" href="assets/media/favicon.ico">
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/highlight.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Sidebar - loaded via JavaScript -->
+      <nav id="sidebar"></nav>
+
+      <!-- Page Content -->
+      <div id="content">
+        <!-- Top Navigation - loaded via JavaScript -->
+        <nav class="navbar" id="navbar"></nav>
+
+        <!-- Main Content -->
+        <div class="container">
+          <div class="page-header">
+            <h1>Global Claim Settings</h1>
+            <p class="lead">
+              These settings control the general behavior of player claims
+              across your server.
+            </p>
+          </div>
+
+          <div class="note-box">
+            <h4>Important Note</h4>
+            <p>
+              Be careful! Changing claim size won't affect previously placed
+              claims, these settings only apply to newly created claims.
+            </p>
+          </div>
+
+          <h2>Configuration Options</h2>
+          <p>
+            The following options can be changed in-game using the
+            <code>/claimorous config</code> command to open the config GUI or by
+            editing the configuration file directly (not recommended).
+          </p>
+
+          <div class="code-block-wrapper">
+            <pre><code class="language-toml">
+# [Global Claim Configuration]
+
+# Tier 0 claim size (side of the cube)
+tier0_claim_size = 7
+# Tier 1 claim size (side of the cube)
+tier1_claim_size = 11
+# Tier 2 claim size (side of the cube)
+tier2_claim_size = 15
+
+# Minimum height for claims
+min_claim_height = -64
+# Maximum height for claims
+max_claim_height = 319
+# Minimum permission level to bypass claim protection
+min_permission_level_to_bypass = 2
+# Maximum claims per player
+max_claims_per_player = 3
+# Minimum distance between claims
+min_distance_between_claims = 16
+# Enable owners to share permissions (Block_Breaking, Item_Use, Entity_Interact) with other players
+enable_permission_system = true
+# Allow owners to share permissions management with other players
+allow_permission_management_sharing = false
+
+</code></pre>
+          </div>
+
+          <h2>Claim Tiers</h2>
+          <p>
+            Claimorous! features three tiers of claims, each with different
+            sizes:
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Tier</th>
+                <th>Size (Cube Side Length)</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tier 0</td>
+                <td>7 blocks</td>
+                <td>Basic claim, suitable for small builds or starter bases</td>
+              </tr>
+              <tr>
+                <td>Tier 1</td>
+                <td>11 blocks</td>
+                <td>Medium-sized claim, good for established bases</td>
+              </tr>
+              <tr>
+                <td>Tier 2</td>
+                <td>15 blocks</td>
+                <td>
+                  Large claim, ideal for complex builds or community areas
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="note-box">
+            <h4>Technical Note</h4>
+            <p>
+              Claim sizes must be odd numbers because the Claim Anchor is placed
+              at the center of the claim. This ensures that the protected area
+              extends equally in all directions from the anchor.
+            </p>
+          </div>
+
+          <h2>Placement Limits</h2>
+          <p>Claims can only be placed within specific height limits:</p>
+          <ul>
+            <li>
+              <strong>Minimum Height</strong>: -64 (or the world's minimum
+              height)
+            </li>
+            <li>
+              <strong>Maximum Height</strong>: 319 (or the world's maximum
+              height)
+            </li>
+          </ul>
+          <p>
+            These limits ensure that claims can be placed throughout the entire
+            vertical range of the Minecraft world.
+          </p>
+
+          <h2>Claim Restrictions</h2>
+          <p>
+            To maintain balance and prevent claim spam, the following
+            restrictions apply:
+          </p>
+          <ul>
+            <li>
+              <strong>Maximum Claims per Player</strong>: By default, each
+              player can own up to 3 claims
+            </li>
+            <li>
+              <strong>Minimum Distance Between Claims</strong>: Claims from
+              different players must be at least 16 blocks apart
+            </li>
+          </ul>
+
+          <h2>Bypass Permissions</h2>
+          <p>
+            Server operators (or players with the appropriate permission level)
+            can bypass claim restrictions. By default, this requires a
+            permission level of 2 (OP status).
+          </p>
+
+          <div class="warning-box">
+            <h4>Warning</h4>
+            <p>
+              Allowing non-OP players to bypass claim restrictions can lead to
+              grief and abuse. Only change this setting if you have a trusted
+              staff team with clear guidelines.
+            </p>
+          </div>
+          <div class="nav-button-container">
+            <!-- Previous page button -->
+            <button
+              class="btn btn-info"
+              id="prev-button"
+              onclick="window.location.href = 'index.html'"
+            >
+              ⮜ &nbsp; Mod Overview
+            </button>
+
+            <!-- Next page button -->
+            <button
+              class="btn btn-info"
+              id="next-button"
+              onclick="window.location.href = 'views/player-claims/protection.html'"
+            >
+              Protection &nbsp; ⮞
+            </button>
+          </div>
+        </div>
+
+        <!-- Back to top button - loaded via JavaScript -->
+        <div id="back-to-top"></div>
+
+        <!-- Footer - loaded via JavaScript -->
+        <footer id="footer"></footer>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="scripts/components-loader.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>

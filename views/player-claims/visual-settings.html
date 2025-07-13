@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Settings - Claimorous! Wiki</title>
+    <base href="/claimorous-wiki/" />
+    <link rel="icon" type="image/x-icon" href="assets/media/favicon.ico">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/highlight.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar - loaded via JavaScript -->
+        <nav id="sidebar"></nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <!-- Top Navigation - loaded via JavaScript -->
+            <nav class="navbar" id="navbar"></nav>
+
+            <!-- Main Content -->
+            <div class="container">
+                <div class="page-header">
+                    <h1>Visual Settings</h1>
+                    <p class="lead">Customize the visual appearance of claim boundaries and effects.</p>
+                </div>
+
+                <h2>Overview</h2>
+                <p>Claimorous! provides visual indicators to help players identify claim boundaries and protection effects. These visual elements can be customized by server administrators to match server aesthetics or performance requirements.</p>
+
+                <div class="info-box">
+                    <p>Players can see claim boundaries by using the Claim Monocle item, which shows particle borders around claims when held in the off-hand slot.</p>
+                </div>
+
+                <h2>Claim Border Visualization</h2>
+                <p>Claim borders are displayed as particle effects that outline the boundaries of claims. These visual indicators help players understand where protected areas begin and end.</p>
+
+                <h3>Border Configuration Options</h3>
+                <div class="code-block">
+                    <pre><code class="language-toml"># Show particle borders around claims
+show_claim_borders = true
+
+# Maximum distance at which claim borders are visible
+claim_border_view_distance = 128
+
+# Size of claim border particles
+claim_particle_scale = 2.0
+
+# Update interval for claim border particles (in ticks)
+claim_particle_update_interval = 20
+
+# Density of particles in claim borders
+claim_particle_density = 1.0</code></pre>
+                    <button class="copy-button" onclick="copyToClipboard(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+
+                <h2>Claim Tier Colors</h2>
+                <p>Each claim tier has a distinct color to help players identify the tier level at a glance. These colors can be customized using hex color codes.</p>
+
+                <div class="code-block">
+                    <pre><code class="language-toml"># Colors for different claim tiers (in hex format)
+tier0_claim_color = "#55FF55"  # Light green
+tier1_claim_color = "#5555FF"  # Blue
+tier2_claim_color = "#CC4444"  # Red</code></pre>
+                    <button class="copy-button" onclick="copyToClipboard(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+
+                <h2>Protection Effect Visualizations</h2>
+                <p>When protection features block certain actions, visual effects can be displayed to provide feedback to players. These effects can be customized or disabled (see PvP and Environmental <a href="protection.html" target="_blank" rel="noopener noreferrer">Protection</a> for more information).</p>
+
+                <h3>Projectile Protection Effects</h3>
+                <div class="code-block">
+                    <pre><code class="language-toml"># Visual effects for blocked projectiles
+show_projectile_effects = true
+projectile_particle_scale = 1.0
+projectile_particle_count = 16
+projectile_effect_cooldown = 100
+projectile_particle_density = 1.0</code></pre>
+                    <button class="copy-button" onclick="copyToClipboard(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+
+                <h3>Explosion Protection Effects</h3>
+                <div class="code-block">
+                    <pre><code class="language-toml"># Visual effects for blocked explosions
+show_explosion_effects = true
+explosion_particle_scale = 0.5
+explosion_sound_volume = 50
+explosion_effect_cooldown = 500</code></pre>
+                    <button class="copy-button" onclick="copyToClipboard(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+
+                <h2>Performance Considerations</h2>
+                <p>Visual effects can impact server and client performance, especially on servers with many claims or players. Consider these tips for optimizing visual settings:</p>
+
+                <ul>
+                    <li><strong>Reduce particle density</strong> for better performance on busy servers</li>
+                    <li><strong>Increase update intervals</strong> to reduce the frequency of particle generation</li>
+                    <li><strong>Lower view distance</strong> to limit how far away players can see claim borders</li>
+                    <li><strong>Disable effect visualizations</strong> if they're not necessary for your server</li>
+                </ul>
+
+                <div class="warning-box">
+                    <p>Setting particle density or count too high can cause client-side lag, especially when many claims are visible simultaneously.</p>
+                </div>
+
+                <div class="nav-button-container">
+                    <!-- Previous page button -->
+                    <button
+                      class="btn btn-info"
+                      id="prev-button"
+                      onclick="window.location.href = 'views/player-claims/claim-transfer.html'"
+                    >
+                      ⮜ &nbsp; Claim Transfer
+                    </button>
+        
+                    <!-- Next page button -->
+                    <button
+                      class="btn btn-info"
+                      id="next-button"
+                      onclick="window.location.href = 'views/player-claims/logging-settings.html'"
+                    >
+                      Logging Settings &nbsp; ⮞
+                    </button>
+                  </div>
+            </div>
+
+            <!-- Back to top button - loaded via JavaScript -->
+            <div id="back-to-top"></div>
+
+            <!-- Footer - loaded via JavaScript -->
+            <footer id="footer"></footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="scripts/components-loader.js"></script>
+    <script src="scripts/main.js"></script> 
+</body>
+</html>

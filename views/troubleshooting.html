@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troubleshooting - Claimorous! Wiki</title>
+    <base href="/claimorous-wiki/" />
+    <link rel="icon" type="image/x-icon" href="assets/media/favicon.ico">
+
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/highlight.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar - loaded via JavaScript -->
+        <nav id="sidebar"></nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <!-- Top Navigation - loaded via JavaScript -->
+            <nav class="navbar" id="navbar"></nav>
+
+            <!-- Main Content -->
+            <div class="container">
+                <div class="page-header">
+                    <h1>Troubleshooting</h1>
+                    <p class="lead">Solutions for common issues and problems with Claimorous!</p>
+                </div>
+
+                <h2>Common Issues</h2>
+                
+                <div class="issue-card">
+                    <h3>Claim Creation Fails</h3>
+                    <p><strong>Problem:</strong> You're unable to create a new claim with your Claim Anchor.</p>
+                    <p><strong>Possible Causes:</strong></p>
+                    <ul>
+                        <li>You've reached your maximum claim limit (default: 3 claims per player)</li>
+                        <li>You're trying to place a claim too close to another player's claim (default minimum distance: 16 blocks)</li>
+                        <li>You're trying to place the Claim Anchor outside the allowed height range</li>
+                        <li>The area is already claimed by another player or an admin claim</li>
+                    </ul>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Check how many claims you already own using the Claim Monocle</li>
+                        <li>Move further away from existing claims</li>
+                        <li>Verify that you're within the allowed height range (default: -64 to 319)</li>
+                        <li>Use the Claim Monocle to check for existing claims in the area</li>
+                    </ul>
+                </div>
+
+                <div class="issue-card">
+                    <h3>Protection Doesn't Work</h3>
+                    <p><strong>Problem:</strong> Your claim isn't protecting your builds or belongings as expected.</p>
+                    <p><strong>Possible Causes:</strong></p>
+                    <ul>
+                        <li>The specific protection type is disabled in the configuration</li>
+                        <li>The block or entity is listed as an exception in the configuration</li>
+                        <li>Your claim has run out of essence (if the essence system is enabled)</li>
+                        <li>The player has bypass permissions (OP status by default)</li>
+                        <li>You've granted specific permissions to the player</li>
+                    </ul>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Check the configuration settings for the specific protection type</li>
+                        <li>Review the exception lists for the protection type</li>
+                        <li>Add more essence to your claim if needed</li>
+                        <li>Review the permissions you've granted to other players</li>
+                    </ul>
+                </div>
+
+                <div class="issue-card">
+                    <h3>Visual Effects Not Appearing</h3>
+                    <p><strong>Problem:</strong> You can't see claim borders or other visual effects.</p>
+                    <p><strong>Possible Causes:</strong></p>
+                    <ul>
+                        <li>Particle effects are disabled in your game settings</li>
+                        <li>Visual effects are disabled in the mod configuration</li>
+                        <li>You're not holding the Claim Monocle in your off-hand</li>
+                        <li>You're too far from the claim (beyond the view distance setting)</li>
+                    </ul>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>Check your Minecraft particle settings (Options → Video Settings → Particles)</li>
+                        <li>Verify that visual effects are enabled in the mod configuration</li>
+                        <li>Make sure you're holding the Claim Monocle in your off-hand</li>
+                        <li>Move closer to the claim</li>
+                    </ul>
+                </div>
+
+                <h2>Config Validation</h2>
+                <p>The mod automatically validates configuration values on load to ensure they are within acceptable ranges. Invalid values will be adjusted to the nearest valid value.</p>
+                
+                <div class="warning-box">
+                    <h4>Warning</h4>
+                    <p>It's not recommended to edit the configuration files manually. Instead, use the in-game configuration menus:</p>
+                    <ul>
+                        <li>For player claims: <code>/claimorous config</code></li>
+                        <li>For admin claims: <code>/claimorous admin config &lt;type&gt;</code></li>
+                    </ul>
+                </div>
+
+                <h2>Reporting Issues</h2>
+                
+                <div class="note-box">
+                    <p>If you encounter bugs or compatibility issues, please report them on our <a href="https://discord.gg/6SM9WvgcY6" target="_blank" rel="noopener noreferrer" >Discord server</a> with the following information:</p>
+                    <ul>
+                        <li>Detailed description of the issue</li>
+                        <li>Steps to reproduce the problem</li>
+                        <li>Your Minecraft version</li>
+                        <li>Fabric Loader version</li>
+                        <li>Claimorous! version</li>
+                        <li>List of other installed mods</li>
+                        <li>Server logs (if applicable)</li>
+                    </ul>
+                </div>
+
+
+                <h2>Not Just Claimorous!</h2>
+                <div class="note-box">
+                    <h4>Enhanced Experience</h4>
+                    <p>For an even more captivating experience, try Claimorous! along with <a href="https://modrinth.com/mod/locknpick" target="_blank" rel="noopener noreferrer" >🔒 Lock'n'Pick</a> mod.</p>
+                </div>
+                <div class="nav-button-container">
+                    <!-- Previous page button -->
+                    <button
+                      class="btn btn-info"
+                      id="prev-button"
+                      onclick="window.location.href = 'views/admin-claims/config.html'"
+                    >
+                      ⮜ &nbsp; Configuration
+                    </button>
+                </div>
+            </div>
+
+            <!-- Back to top button - loaded via JavaScript -->
+            <div id="back-to-top"></div>
+
+            <!-- Footer - loaded via JavaScript -->
+            <footer id="footer"></footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="scripts/components-loader.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logging Settings - Claimorous! Wiki</title>
+    <base href="/claimorous-wiki/" />
+    <link rel="icon" type="image/x-icon" href="assets/media/favicon.ico">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/highlight.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar - loaded via JavaScript -->
+        <nav id="sidebar"></nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <!-- Top Navigation - loaded via JavaScript -->
+            <nav class="navbar" id="navbar"></nav>
+
+            <!-- Main Content -->
+            <div class="container">
+                <div class="page-header">
+                    <h1>Logging Settings</h1>
+                    <p class="lead">Configure detailed logging for claim activities and events.</p>
+                </div>
+                <div class="warning-box">
+                    <p>Logging system is still in WIP</p>
+                </div>
+
+                <h2>Overview</h2>
+                <p>Claimorous! provides comprehensive logging options to help server administrators track claim-related activities and troubleshoot issues. These logs can be invaluable for monitoring player behavior, investigating griefing attempts, and maintaining server security.</p>
+
+                <div class="note-box">
+                    <p>Logs are stored in the server's log files and can be accessed through standard server log viewing methods.</p>
+                </div>
+
+                <h2>Available Logging Options</h2>
+                <p>Server administrators can enable or disable logging for various claim-related events:</p>
+
+                <div class="code-block">
+                    <pre><code class="language-toml">
+# [Logging Settings]
+
+# Enable logging for claim creation
+log_claim_creation = true
+
+# Enable logging for claim removal
+log_claim_removal = true
+
+# Enable logging for claim modifications
+log_claim_modification = true
+
+# Enable logging for player warnings (attempted violations)
+log_player_warnings = true
+
+# Enable periodic statistics logging
+log_periodic_stats = false
+
+# Interval for periodic stats logging (in seconds)
+periodic_stats_interval = 3600
+
+# Enable logging for configuration changes
+log_config_changes = true
+
+# Enable debug logging (verbose)
+log_debug_info = false
+
+</code></pre>
+                    <button class="copy-button" onclick="copyToClipboard(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+
+                <h2>Log Types Explained</h2>
+                
+                <h3>Claim Creation Logs</h3>
+                <p>When enabled, these logs record when and where players create new claims, including:</p>
+                <ul>
+                    <li>Player name and UUID</li>
+                    <li>Claim location (coordinates)</li>
+                    <li>Claim tier</li>
+                </ul>
+
+                <h3>Claim Removal Logs</h3>
+                <p>These logs track when claims are removed, whether by the owner or through other means:</p>
+                <ul>
+                    <li>Player who removed the claim</li>
+                    <li>Original claim owner</li>
+                    <li>Claim location (coordinates)</li>
+                    <li>Reason for removal (if applicable)</li>
+                </ul>
+
+                <h3>Claim Modification Logs</h3>
+                <p>These logs record changes to existing claims, such as:</p>
+                <ul>
+                    <li>Permission changes</li>
+                    <li>Tier upgrades</li>
+                    <li>Essence additions</li>
+                    <li>Other configuration changes</li>
+                </ul>
+
+                <h3>Player Warning Logs</h3>
+                <p>These logs record attempted violations of claim protections:</p>
+                <ul>
+                    <li>Player attempting the action</li>
+                    <li>Type of action attempted (block breaking, entity interaction, etc.)</li>
+                    <li>Location of the attempt</li>
+                    <li>Claim owner</li>
+                </ul>
+
+                <h3>Periodic Statistics Logs</h3>
+                <p>When enabled, these logs provide regular summaries of claim-related statistics:</p>
+                <ul>
+                    <li>Total number of players with claims</li>
+                    <li>Average number of claims per player</li>
+                </ul>
+
+                <h3>Configuration Change Logs</h3>
+                <p>These logs record changes to the Claimorous! configuration:</p>
+                <ul>
+                    <li>Who made the change (player name or console)</li>
+                    <li>What setting was changed</li>
+                    <li>Old and new values</li>
+                    <li>Timestamp</li>
+                </ul>
+
+                <h3>Debug Logs</h3>
+                <p>These are verbose logs that provide detailed information about the mod's operation:</p>
+                <ul>
+                    <li>Internal processes and calculations</li>
+                    <li>Performance metrics</li>
+                    <li>Error traces and warnings</li>
+                    <li>Other technical details</li>
+                </ul>
+
+                <div class="warning-box">
+                    <p>Debug logging can significantly increase log file size and may impact server performance. Only enable this option when troubleshooting specific issues.</p>
+                </div>
+
+                <div class="nav-button-container">
+                    <!-- Previous page button -->
+                    <button
+                      class="btn btn-info"
+                      id="prev-button"
+                      onclick="window.location.href = 'views/player-claims/visual-settings.html'"
+                    >
+                      ⮜ &nbsp; Visual Settings
+                    </button>
+        
+                    <!-- Next page button -->
+                    <button
+                      class="btn btn-info"
+                      id="next-button"
+                      onclick="window.location.href = 'views/admin-claims/commands.html'"
+                    >
+                      Admin Claims Commands &nbsp; ⮞
+                    </button>
+                  </div>
+            </div>
+
+            <!-- Back to top button - loaded via JavaScript -->
+            <div id="back-to-top"></div>
+
+            <!-- Footer - loaded via JavaScript -->
+            <footer id="footer"></footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="scripts/components-loader.js"></script>
+    <script src="scripts/main.js"></script>
+
+</body>
+</html>

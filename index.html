@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overview - Claimorous! Wiki</title>
+    <base href="/claimorous-wiki/" />
+    <!-- CSS files -->
+    <link rel="icon" type="image/x-icon" href="assets/media/favicon.ico">
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/highlight.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Sidebar - loaded via JavaScript -->
+      <nav id="sidebar"></nav>
+
+      <!-- Page Content -->
+      <div id="content">
+        <!-- Top Navigation - loaded via JavaScript -->
+        <nav class="navbar" id="navbar"></nav>
+
+        <!-- Main Content -->
+        <div class="container">
+          <h1>Claimorous! - Advanced Land Protection Mod</h1>
+
+          <div class="hero-image">
+            <img src="assets/media/home-image.png" alt="Claim Tier 2" />
+          </div>
+
+          <h2>Overview</h2>
+          <p>
+            Claimorous! is a powerful and highly customizable land protection
+            mod for Minecraft servers running on the Fabric mod loader. It
+            allows players to create protected areas (claims) where their builds
+            and belongings are secured from unwanted interference.
+          </p>
+
+          <p>
+            With an intuitive in-game interface and fully configurable settings,
+            Claimorous! offers a flexible claim system suitable for any
+            multiplayer environment. Server administrators have extensive
+            control over the entire system through detailed configuration
+            options, making it an excellent tool for customizing gameplay within
+            modpacks.
+          </p>
+
+          <p>
+            Designed to perform efficiently on high-population or high-density
+            servers, Claimorous! ensures both reliability and scalability.
+          </p>
+
+          <div class="discord-invite">
+            <p>
+              We want you! If you are a server admin and want to discuss
+              features or a player who wants to join the mod test server, Join
+              Us on
+              <a
+                href="https://discord.gg/6SM9WvgcY6"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Discord</a
+              >
+            </p>
+            <a
+              href="https://discord.gg/6SM9WvgcY6"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="discord-button"
+            >
+              <i class="fab fa-discord"></i> Join our Discord
+            </a>
+          </div>
+
+          <h2>Key Features</h2>
+          <ul class="feature-list">
+            <li>
+              <strong>Tiered Claim System</strong>: Three tiers of claims with
+              customizable sizes
+            </li>
+            <li>
+              <strong>Comprehensive Protection</strong>: Control block
+              breaking/placement, entity interaction, PvP, and more
+            </li>
+            <li>
+              <strong>Permission System</strong>: Fine-grained control on what
+              other players can do within your claim
+            </li>
+            <li>
+              <strong>Claim Transfer</strong>: A contract-like item to transfer
+              claim ownership
+            </li>
+            <li>
+              <strong>Visual Indicators</strong>: Customizable claim borders
+              with particle effects
+            </li>
+            <li>
+              <strong>Essence System</strong>: Optional upkeep system for claims
+              requiring "essence" as a resource
+            </li>
+            <li>
+              <strong>Admin Claims</strong>: Special administrator-controlled
+              claims with unique settings
+            </li>
+            <li>
+              <strong>Detailed Configuration</strong>: Extensive options for
+              server owners to tailor the system to their needs
+            </li>
+            <li>
+              <strong>And much more</strong>: Explosion, pistons, fluids,
+              projectile, and many more option can be configured!
+            </li>
+          </ul>
+
+          <div class="image-gallery">
+            <img
+              src="assets/media/explosion-protection.gif"
+              alt="Explosion Protection"
+            />
+            <img
+              src="assets/media/projectile-protection.gif"
+              alt="Projectile Protection"
+            />
+          </div>
+
+          <h2>Getting Started</h2>
+
+          <h3>Creating a Claim</h3>
+          <ol>
+            <li>
+              Craft a <strong>Claim Anchor</strong> (the primary block used to
+              define and manage a claim)
+            </li>
+            <li>
+              Place the Claim Anchor where you want the center of your claim to
+              be
+            </li>
+            <li>
+              The claim will extend in all directions from the anchor according
+              to the tier settings
+            </li>
+          </ol>
+
+          <h3>Claim Management</h3>
+          <ul>
+            <li>
+              Craft the <strong>Claim Monocle</strong> item and hold it in your
+              off hand to visualize claim boundaries
+            </li>
+            <li>
+              Interact with your Claim Anchor to manage permissions, upgrade
+              tiers and manage claim essence (if enabled)
+            </li>
+          </ul>
+
+          <div class="centered-image">
+            <img src="assets/media/claim-creation.gif" alt="Claim Creation" />
+          </div>
+
+          <div class="note-box">
+            <h4>Note</h4>
+            <p>
+              Claimorous! was designed with an emphasis on extremely granular
+              configuration, allowing any restriction to be managed through a
+              powerful and flexible configuration system. Your imagination is
+              the limit!
+            </p>
+            <p>
+              While Player Claims follow global server rules and rely on the
+              Claim Anchor, Admin Claims are created and managed through
+              commands (if OP) and they follow specific rules that can be
+              defined by creating custom admin claim types.
+            </p>
+            <p>
+              It's not recommended to change config manually, instead player
+              claim config menu can be accessed in game by running
+              <code>/claimorous config</code>, while for admin claim use
+              <code>/claimorous admin config &lt;type&gt;</code>.
+            </p>
+          </div>
+          <div class="nav-button-container">
+            <!-- Next page button -->
+            <button
+              class="btn btn-info"
+              id="next-button"
+              onclick="window.location.href = 'views/player-claims/global-settings.html'"
+            >Global Claim Settings &nbsp; ⮞
+            </button>
+          </div>
+        </div>
+
+        <!-- Back to top button - loaded via JavaScript -->
+        <div id="back-to-top"></div>
+
+
+        <!-- Footer - loaded via JavaScript -->
+        <footer id="footer"></footer>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="scripts/components-loader.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>

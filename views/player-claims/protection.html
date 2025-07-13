@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Protection - Claimorous! Wiki</title>
+    <base href="/claimorous-wiki/" />
+    <link rel="icon" type="image/x-icon" href="assets/media/favicon.ico">
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/highlight.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Sidebar - loaded via JavaScript -->
+      <nav id="sidebar"></nav>
+
+      <!-- Page Content -->
+      <div id="content">
+        <!-- Top Navigation - loaded via JavaScript -->
+        <nav class="navbar" id="navbar"></nav>
+
+        <!-- Main Content -->
+        <div class="container">
+          <div class="page-header">
+            <h1>Protection</h1>
+            <p class="lead">
+              Configure how your claims protect your builds and belongings from
+              unwanted interference.
+            </p>
+          </div>
+
+          <div class="note-box">
+            <h4>Protection Overview</h4>
+            <p>
+              Claims grant their owners a number of protective mechanics that
+              can be activated individually. In addition to activating the
+              protection policy, lists of IDs and Tags can be compiled to
+              indicate exceptions to the rule.
+            </p>
+            <p>
+              For example: by setting <code>prevent_block_breaking</code> to
+              <code>true</code> and including the tag <code>c:ores</code> among
+              the exceptions, ores can be broken by any player. On the other
+              hand, by setting <code>prevent_item_use</code> to
+              <code>false</code> and <code>minecraft:bow</code> as exception ID,
+              only the owner of the claim will be able to shoot arrows.
+            </p>
+          </div>
+
+          <div class="centered-image">
+            <img
+              src="assets/media/config-block-protection.png"
+              alt="Block and Item Protection Config Screen"
+            />
+            <p>
+              <em
+                >Example config: players cannot break blocks except grass,
+                cannot place blocks except flowers, and cannot interact with
+                blocks except doors and buttons.</em
+              >
+            </p>
+          </div>
+
+          <h2>Block and Item Protection</h2>
+          <p>
+            These settings control how blocks and items are protected within
+            claims.
+          </p>
+
+          <div class="code-block-wrapper">
+            <pre><code class="language-toml">
+# [Block and Item Protection Settings]
+
+# Control whether blocks can be broken within claims by non-owners
+prevent_block_breaking = true
+
+# Lists of block IDs/tags that are exceptions to the block breaking restriction
+prevent_block_breaking_exceptions_ids = []
+prevent_block_breaking_exceptions_tags = []
+
+# Control whether blocks can be placed within claims by non-owners
+prevent_block_placement = true
+prevent_block_placement_exceptions_ids = []
+prevent_block_placement_exceptions_tags = []
+
+# Control whether blocks can be interacted with within claims by non-owners
+prevent_block_interaction = true
+prevent_block_interaction_exceptions_ids = []
+prevent_block_interaction_exceptions_tags = []
+
+# Control whether items can be used (ex. eating food) within claims by non-owners
+prevent_item_use = true
+prevent_item_use_exceptions_ids = []
+prevent_item_use_exceptions_tags = []
+
+# Control whether items can be used on blocks (ex. hoe on dirt) within claims by non-owners
+prevent_item_use_on_block = true
+prevent_item_use_on_block_exceptions_ids = []
+prevent_item_use_on_block_exceptions_tags = []
+
+</code></pre>
+          </div>
+
+          <div class="note-box">
+            <h4>Please Note</h4>
+            <p>
+              The examples below consider the cases where protection is enabled
+              (the exceptions disable the restrictions). Anyway, it is possible
+              to set protections to "no": in this case the exceptions enforce
+              protections only on inserted IDs and tags.
+            </p>
+          </div>
+
+          <h3>Block Breaking Protection</h3>
+          <p>
+            When enabled, this prevents non-owners from breaking blocks within
+            the claim. You can specify exceptions by block ID or tag.
+          </p>
+          <p>Common exception examples:</p>
+          <ul>
+            <li><code>minecraft:grass</code> - Allow players to break grass</li>
+            <li><code>c:ores</code> - Allow players to mine any ore</li>
+            <li>
+              <code>minecraft:crops</code> - Allow players to harvest crops
+            </li>
+          </ul>
+
+          <h3>Block Placement Protection</h3>
+          <p>
+            When enabled, this prevents non-owners from placing blocks within
+            the claim. You can specify exceptions by block ID or tag.
+          </p>
+          <p>Common exception examples:</p>
+          <ul>
+            <li>
+              <code>minecraft:torch</code> - Allow players to place torches
+            </li>
+            <li><code>c:flowers</code> - Allow players to place flowers</li>
+          </ul>
+
+          <h3>Block Interaction Protection</h3>
+          <p>
+            When enabled, this prevents non-owners from interacting with blocks
+            (like opening doors, chests, etc.) within the claim. You can specify
+            exceptions by block ID or tag.
+          </p>
+          <p>Common exception examples:</p>
+          <ul>
+            <li>
+              <code>minecraft:crafting_table</code> - Allow players to use
+              crafting tables
+            </li>
+            <li>
+              <code>minecraft:doors</code> - Allow players to open/close doors
+            </li>
+            <li>
+              <code>minecraft:buttons</code> - Allow players to press buttons
+            </li>
+          </ul>
+
+          <h3>Item Use Protection</h3>
+          <p>
+            When enabled, this prevents non-owners from using items (like eating
+            food, drinking potions) within the claim. You can specify exceptions
+            by item ID or tag.
+          </p>
+
+          <h3>Item Use on Block Protection</h3>
+          <p>
+            When enabled, this prevents non-owners from using items on blocks
+            (like using a hoe on dirt) within the claim. You can specify
+            exceptions by item ID or tag.
+          </p>
+
+          <h2>Entity Protection</h2>
+          <p>
+            These settings control how entities are protected within claims.
+          </p>
+
+          <div class="code-block-wrapper">
+            <pre><code class="language-toml">
+# [Entity Protection Settings]
+
+# Protect entities within claims from being attacked by non-owners
+protect_entity_from_attack = true
+
+# Lists of entity IDs/tags that are exceptions to damage protection
+protect_entity_from_attack_exceptions_ids = []
+protect_entity_from_attack_exceptions_tags = []
+
+# Protect entities within claims from being interacted with by non-owners
+protect_entity_from_interaction = true
+
+# Lists of entity IDs/tags that are exceptions to interaction protection
+protect_entity_from_interaction_exceptions_ids = []
+protect_entity_from_interaction_exceptions_tags = []
+
+# Protect claim owners from hostile mob attacks within their own claims
+protect_from_hostile_mob = true
+
+</code></pre>
+          </div>
+
+          <div class="note-box">
+            <h4>Entity Ownership</h4>
+            <p>
+              The ownership of pets and mounts exceeds the ownership of the
+              claim. This means the owner of a horse will be able to interact
+              with it even in other people's claims.
+            </p>
+          </div>
+
+          <h3>Entity Attack Protection</h3>
+          <p>
+            When enabled, this prevents non-owners from attacking entities
+            within the claim. You can specify exceptions by entity ID or tag.
+          </p>
+
+          <h3>Entity Interaction Protection</h3>
+          <p>
+            When enabled, this prevents non-owners from interacting with
+            entities (like trading with villagers, shearing sheep) within the
+            claim. You can specify exceptions by entity ID or tag.
+          </p>
+
+          <h3>Hostile Mob Protection</h3>
+          <p>
+            When enabled, this prevents hostile mobs from attacking claim owners
+            within their own claims. This provides a safe haven for players
+            within their own territory.
+          </p>
+
+          <h2>PvP and Combat Protection</h2>
+          <p>
+            These settings control combat-related protections within claims.
+          </p>
+
+          <div class="code-block-wrapper">
+            <pre><code class="language-toml">
+# [PvP and Projectile Protection Settings]
+
+# Prevent PvP targeting of claim owners
+protect_owner_pvp = true
+
+# Prevent all PvP within claims (for everyone)
+protect_everyone_pvp = false
+
+# Prevent projectile damage within claims
+prevent_projectile_damage = true
+
+# Visual effects for blocked projectiles
+show_projectile_effects = true
+projectile_particle_scale = 1.0
+projectile_particle_count = 16
+projectile_effect_cooldown = 100
+projectile_particle_density = 1.0
+
+</code></pre>
+          </div>
+
+          <div class="centered-image">
+            <img
+              src="assets/media/projectile-protection.gif"
+              alt="Projectile Protection"
+            />
+            <p>
+              <em
+                >Projectile protection in action, showing visual effects when
+                arrows are blocked.</em
+              >
+            </p>
+          </div>
+
+          <h3>Owner PvP Protection</h3>
+          <p>
+            When enabled, this prevents other players from engaging in PvP with
+            the claim owner within their claim.
+          </p>
+
+          <h3>Global PvP Protection</h3>
+          <p>
+            When enabled, this prevents all PvP within the claim, regardless of
+            who is involved.
+          </p>
+
+          <h3>Projectile Protection</h3>
+          <p>
+            When enabled, this prevents projectiles (arrows, tridents, etc.)
+            from causing damage within the claim. You can also configure visual
+            effects to display when projectiles are blocked.
+          </p>
+
+          <h2>Environmental Protection</h2>
+          <p>
+            These settings control how environmental factors interact with
+            claims.
+          </p>
+
+          <div class="code-block-wrapper">
+            <pre><code class="language-toml">
+# [Environmental Protection Settings]
+
+# Prevent fluids from flowing into claims from outside
+prevent_fluid_flow_into_claim = true
+
+# Distance from claims where fluid placement is prevented
+fluid_placement_protection_radius = 3
+
+# Prevent fire from spreading across claim boundaries
+prevent_fire_spread_across_claim = true
+
+# Prevent explosions within claims
+prevent_explosion = true
+
+# Visual effects for blocked explosions
+show_explosion_effects = true
+explosion_particle_scale = 0.5
+explosion_sound_volume = 50
+explosion_effect_cooldown = 500
+
+# Prevent pistons from pushing blocks across claim boundaries
+prevent_piston_interaction = true
+
+# Prevent dispensers from working across claim boundaries
+prevent_dispenser_interaction = true
+
+</code></pre>
+          </div>
+
+          <div class="centered-image">
+            <img
+              src="assets/media/explosion-protection.gif"
+              alt="Explosion Protection"
+            />
+            <p>
+              <em
+                >Explosion protection in action, showing visual effects when
+                explosions are blocked.</em
+              >
+            </p>
+          </div>
+
+          <h3>Fluid Protection</h3>
+          <p>
+            When enabled, this prevents fluids (water, lava) from flowing into
+            claims from outside. You can also set a protection radius to prevent
+            fluid placement near claim boundaries.
+          </p>
+
+          <h3>Fire Protection</h3>
+          <p>
+            When enabled, this prevents fire from spreading across claim
+            boundaries, protecting your builds from wildfires.
+          </p>
+
+          <h3>Explosion Protection</h3>
+          <p>
+            When enabled, this prevents explosions (TNT, creepers, etc.) from
+            damaging blocks within claims. You can also configure visual effects
+            to display when explosions are blocked.
+          </p>
+
+          <h3>Pistons and Dispensers Protection</h3>
+          <p>
+            These settings prevent pistons and dispensers from affecting blocks
+            across claim boundaries, ensuring that redstone contraptions can't
+            be used to bypass claim protection.
+            <br />
+            <br />Hoppers cannot be used to move items across claim boundaries
+            (not configurable).
+          </p>
+          <div class="nav-button-container">
+            <!-- Previous page button -->
+            <button
+              class="btn btn-info"
+              id="prev-button"
+              onclick="window.location.href = 'views/player-claims/global-settings.html'"
+            >
+              ⮜ &nbsp; Global Claim Settings
+            </button>
+
+            <!-- Next page button -->
+            <button
+              class="btn btn-info"
+              id="next-button"
+              onclick="window.location.href = 'views/player-claims/essence-system.html'"
+            >
+              Essence System &nbsp; ⮞
+            </button>
+          </div>
+        </div>
+
+        <!-- Back to top button - loaded via JavaScript -->
+        <div id="back-to-top"></div>
+
+        <!-- Footer - loaded via JavaScript -->
+        <footer id="footer"></footer>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="scripts/components-loader.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Transfer - Claimorous! Wiki</title>
+    <base href="/claimorous-wiki/" />
+    <link rel="icon" type="image/x-icon" href="assets/media/favicon.ico">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/highlight.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar - loaded via JavaScript -->
+        <nav id="sidebar"></nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <!-- Top Navigation - loaded via JavaScript -->
+            <nav class="navbar" id="navbar"></nav>
+
+            <!-- Main Content -->
+            <div class="container">
+                <div class="page-header">
+                    <h1>Claim Transfer</h1>
+                    <p class="lead">Transfer ownership of your claims to other players.</p>
+                </div>
+
+                <h2>Overview</h2>
+                <p>The Claim Transfer system allows players to transfer ownership of their claims to other players using Claim Contracts. This feature is particularly useful for server communities where players may want to sell, gift, or transfer properties to friends or other community members.</p>
+
+                <div class="info-box">
+                    <p>Claim Contracts work like legal documents that must be signed by the recipient before the transfer can be completed.</p>
+                </div>
+
+                <h2>How Claim Transfer Works</h2>
+                <ol>
+                    <li>The recipient player crafts a Claim Contract</li>
+                    <li>The recipient signs the contract using the item</li>
+                    <li>The claim owner uses the signed contract on their claim anchor</li>
+                    <li>The owner confirms the transfer in the dedicated screen</li>
+                    <li>Ownership is transferred to the recipient</li>
+                </ol>
+
+                <div class="note-box">
+                    <h4>Important Note</h4>
+                    <p>Claim transfers are permanent and cannot be undone. Make sure you trust the recipient before transferring your claim!</p>
+                </div>
+
+                <h2>Signing a Contract</h2>
+                <p>To sign a Claim Contract:</p>
+                <ol>
+                    <li>Hold the Claim Contract in your main hand</li>
+                    <li>Right-click while holding the contract</li>
+                    <li>Confirm the signing in the dialog that appears</li>
+                </ol>
+
+                <p>Once signed, the contract will display your name and can be given to the current claim owner.</p>
+
+                <h2>Executing a Transfer</h2>
+                <p>To transfer a claim as the owner:</p>
+                <ol>
+                    <li>Obtain a signed Claim Contract from the recipient</li>
+                    <li>Right-click on your claim anchor with the signed contract</li>
+                    <li>Review the transfer details in the confirmation screen</li>
+                    <li>Confirm the transfer</li>
+                </ol>
+
+                <div class="warning-box">
+                    <p>After transferring a claim, you will no longer have any permissions within that claim unless the new owner grants them to you.</p>
+                </div>
+
+                <h2>Considerations for Claim Transfer</h2>
+                <ul>
+                    <li><strong>Permissions:</strong> All permission settings are preserved during transfer, but the new owner can modify them</li>
+                    <li><strong>Essence:</strong> If the essence system is enabled, the current essence level transfers with the claim</li>
+                    <li><strong>Claim Count:</strong> The recipient must have available claim slots (not exceeding their maximum allowed claims)</li>
+                    <li><strong>Tier Level:</strong> The claim tier remains unchanged during transfer</li>
+                </ul>
+
+                <div class="nav-button-container">
+                    <!-- Previous page button -->
+                    <button
+                      class="btn btn-info"
+                      id="prev-button"
+                      onclick="window.location.href = 'views/player-claims/permission-system.html'"
+                    >
+                      ⮜ &nbsp; Permission System
+                    </button>
+        
+                    <!-- Next page button -->
+                    <button
+                      class="btn btn-info"
+                      id="next-button"
+                      onclick="window.location.href = 'views/player-claims/visual-settings.html'"
+                    >
+                      Visual Settings &nbsp; ⮞
+                    </button>
+                  </div>
+            </div>
+
+            <!-- Back to top button - loaded via JavaScript -->
+            <div id="back-to-top"></div>
+
+            <!-- Footer - loaded via JavaScript -->
+            <footer id="footer"></footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="scripts/components-loader.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

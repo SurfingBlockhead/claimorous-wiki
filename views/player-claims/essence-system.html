@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essence System - Claimorous! Wiki</title>
+    <base href="/claimorous-wiki/" />
+    <link rel="icon" type="image/x-icon" href="assets/media/favicon.ico">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/highlight.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar - loaded via JavaScript -->
+        <nav id="sidebar"></nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <!-- Top Navigation - loaded via JavaScript -->
+            <nav class="navbar" id="navbar"></nav>
+
+            <!-- Main Content -->
+            <div class="container">
+                <div class="page-header">
+                    <h1>Essence System</h1>
+                    <p class="lead">A resource-based upkeep system for maintaining claims.</p>
+                </div>
+
+                <h2>Overview</h2>
+                <p>The Essence System introduces a maintenance cost for claims, requiring players to regularly add essence to keep their claims active. When enabled, claims start with a small amount of essence that depletes over time. If the essence runs out, the claim deactivates and no longer provides protection.</p>
+
+                <div class="note-box">
+                    <h4>Important Note</h4>
+                    <p>The Essence System is optional and can be disabled by server administrators. When disabled, claims remain active indefinitely without requiring maintenance.</p>
+                </div>
+
+                <h2>How It Works</h2>
+                <ul>
+                    <li>Each claim consumes essence at regular intervals</li>
+                    <li>Players must add essence items to their claim anchor to maintain protection</li>
+                    <li>New claims receive an initial grace period, providing a configurable amount of essence</li>
+                    <li>The claim anchor has a maximum storage capacity for essence</li>
+                </ul>
+
+                <h2>Adding Essence</h2>
+                <p>To add essence to a claim:</p>
+                <ol>
+                    <li>Obtain the essence item (configurable, default: <code>claimorous:claim_essence</code>)</li>
+                    <li>Right-click on your claim anchor</li>
+                    <li>Place the essence item in the designated slot in the GUI</li>
+                </ol>
+
+                <div class="info-box">
+                    <p>Each essence item adds a configurable amount of essence to your claim's storage.</p>
+                </div>
+
+                <h2>Configuration Options</h2>
+                <p>Server administrators can customize the essence system through the following settings:</p>
+
+                <div class="code-block">
+                    <pre><code class="language-toml">
+# [Essence System Settings]
+                        
+# Enable or disable the essence system
+enable_essence_system = true
+
+# Interval in ticks between essence consumption (20 ticks = 1 second)
+essence_consumption_interval = 1200
+
+# Amount of essence consumed per interval
+essence_consumption_amount = 1.0
+
+# Initial grace period once claim anchor is placed in ticks
+initial_grace_period_ticks = 2400
+
+# Maximum amount of essence that can be stored in a claim anchor
+max_essence_storage = 2000
+
+# Amount of essence provided by each essence item
+essence_per_item = 20
+
+# Item ID for the essence item
+essence_item_id = "claimorous:claim_essence"
+
+</code></pre>
+                    <button class="copy-button" onclick="copyToClipboard(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+
+                <h2>Tips for Players</h2>
+                <ul>
+                    <li>Keep a reserve of essence items for emergencies</li>
+                    <li>Check your claim's essence level regularly</li>
+                    <li>Consider the essence cost when planning multiple claims</li>
+                </ul>
+
+                <h2>Tips for Administrators</h2>
+                <ul>
+                    <li>Balance the essence consumption rate with your server's economy</li>
+                    <li>Consider making essence craftable or obtainable through gameplay</li>
+                    <li>Adjust the initial grace period to give new players time to understand the system</li>
+                    <li>Use the essence system to prevent claim hoarding and abandoned claims</li>
+                </ul>
+                <div class="nav-button-container">
+                    <!-- Previous page button -->
+                    <button
+                      class="btn btn-info"
+                      id="prev-button"
+                      onclick="window.location.href = 'views/player-claims/protection.html'"
+                    >
+                      ⮜ &nbsp; Protection
+                    </button>
+
+                    <!-- Next page button -->
+                    <button
+                      class="btn btn-info"
+                      id="next-button"
+                      onclick="window.location.href = 'views/player-claims/permission-system.html'"
+                    >
+                      Permission System &nbsp; ⮞
+                    </button>
+                  </div>
+            </div>
+
+            <!-- Back to top button - loaded via JavaScript -->
+            <div id="back-to-top"></div>
+
+            <!-- Footer - loaded via JavaScript -->
+            <footer id="footer"></footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="scripts/components-loader.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

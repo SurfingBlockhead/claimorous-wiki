@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permission System - Claimorous! Wiki</title>
+    <base href="/claimorous-wiki/" />
+    <link rel="icon" type="image/x-icon" href="assets/media/favicon.ico">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/highlight.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar - loaded via JavaScript -->
+        <nav id="sidebar"></nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <!-- Top Navigation - loaded via JavaScript -->
+            <nav class="navbar" id="navbar"></nav>
+
+            <!-- Main Content -->
+            <div class="container">
+                <div class="page-header">
+                    <h1>Permission System</h1>
+                    <p class="lead">Fine-grained control over what other players can do within your claim.</p>
+                </div>
+
+                <h2>Overview</h2>
+                <p>The Permission System allows claim owners to grant specific permissions to other players, giving them the ability to perform certain actions within the claim that would otherwise be restricted. This enables collaboration while maintaining security.</p>
+
+                <div class="note-box">
+                    <h4>Important Note</h4>
+                    <p>The Permission System is enabled by default but can be disabled by server administrators. When disabled, only claim owners and server operators can interact with claims.</p>
+                </div>
+
+                <h2>Available Permissions</h2>
+                <p>Claim owners can grant the following permissions to other players:</p>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Permission</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Break Blocks</td>
+                            <td>Allows breaking blocks within the claim</td>
+                        </tr>
+                        <tr>
+                            <td>Place Blocks</td>
+                            <td>Allows placing blocks within the claim</td>
+                        </tr>
+                        <tr>
+                            <td>Interact with Blocks</td>
+                            <td>Allows interaction with blocks (e.g., chests, doors, buttons)</td>
+                        </tr>
+                        <tr>
+                            <td>Use Items</td>
+                            <td>Allows using items within the claim</td>
+                        </tr>
+                        <tr>
+                            <td>Interact with Entities</td>
+                            <td>Allows interaction with entities (e.g., villagers, animals)</td>
+                        </tr>
+                        <tr>
+                            <td>Attack Entities</td>
+                            <td>Allows attacking entities within the claim</td>
+                        </tr>
+                        <tr>
+                            <td>Manage Permissions</td>
+                            <td>Allows managing permissions for other players (if enabled by server)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Managing Permissions</h2>
+                <p>To manage permissions for other players:</p>
+                <ol>
+                    <li>Right-click on your claim anchor</li>
+                    <li>Navigate to the "Permissions" tab in the GUI</li>
+                    <li>Select a player from the list or add a new player</li>
+                    <li>Toggle the permissions you want to grant or revoke</li>
+                    <li>Save your changes</li>
+                </ol>
+
+                <div class="info-box">
+                    <p>Players with the "Manage Permissions" permission can grant or revoke permissions for other players, but they cannot grant the "Manage Permissions" permission itself to others.</p>
+                </div>
+
+                <h2>Configuration Options</h2>
+                <p>Server administrators can customize the permission system through the following settings (in the Global Claim Configuration section):</p>
+
+                <div class="code-block">
+                    <pre><code class="language-toml"># Enable/disable the permission system within claims
+enable_permission_system = true
+
+# Allow claim owners to share permission management with trusted players
+allow_permission_management_sharing = true</code></pre>
+                    <button class="copy-button" onclick="copyToClipboard(this)">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+
+                <h2>Tips for Players</h2>
+                <ul>
+                    <li>Be cautious when granting the "Manage Permissions" permission</li>
+                    <li>Consider creating different permission sets for different types of collaborators</li>
+                    <li>Regularly review your permission settings, especially for inactive players</li>
+                    <li>For temporary access, grant only the specific permissions needed</li>
+                </ul>
+
+                <h2>Tips for Administrators</h2>
+                <ul>
+                    <li>Consider whether to allow permission management sharing based on your server's trust model</li>
+                    <li>Inform players about the permission system to prevent accidental security issues</li>
+                </ul>
+
+                <div class="nav-button-container">
+                    <!-- Previous page button -->
+                    <button
+                      class="btn btn-info"
+                      id="prev-button"
+                      onclick="window.location.href = 'views/player-claims/essence-system.html'"
+                    >
+                      ⮜ &nbsp; Essence System
+                    </button>
+        
+                    <!-- Next page button -->
+                    <button
+                      class="btn btn-info"
+                      id="next-button"
+                      onclick="window.location.href = 'views/player-claims/claim-transfer.html'"
+                    >
+                      Claim Transfer &nbsp; ⮞
+                    </button>
+                  </div>
+            </div>
+
+            <!-- Back to top button - loaded via JavaScript -->
+            <div id="back-to-top"></div>
+
+            <!-- Footer - loaded via JavaScript -->
+            <footer id="footer"></footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="scripts/components-loader.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

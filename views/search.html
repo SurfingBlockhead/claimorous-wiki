@@ -1,0 +1,59 @@
+<!--
+This search.html view will handle the search functionality for the sidebar, returning to the user the search results in a fancy "blogpost style".
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Results - Claimorous! Wiki</title>
+    <base href="/claimorous-wiki/" />
+    <link rel="icon" type="image/x-icon" href="assets/media/favicon.ico">
+
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/highlight.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!-- Sidebar - loaded via JavaScript -->
+      <nav id="sidebar"></nav>
+
+      <!-- Page Content -->
+      <div id="content">
+        <!-- Top Navigation - loaded via JavaScript -->
+        <nav class="navbar" id="navbar"></nav>
+
+        <!-- Main Content -->
+        <div class="container">
+          <h1>Search Results</h1>
+          <p>Here are the search results for your query:</p>
+
+          <div id="search-results" class="blog-post-previews"></div>
+        </div>
+        <!-- Back to top button - loaded via JavaScript -->
+        <div id="back-to-top"></div>
+
+        <!-- Footer - loaded via JavaScript -->
+        <footer id="footer"></footer>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/search-display.js"></script>
+    <script src="scripts/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="scripts/components-loader.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>

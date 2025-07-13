@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Claim Commands - Claimorous! Wiki</title>
+    <base href="/claimorous-wiki/" />
+    <link rel="icon" type="image/x-icon" href="assets/media/favicon.ico">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/highlight.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar - loaded via JavaScript -->
+        <nav id="sidebar"></nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <!-- Top Navigation - loaded via JavaScript -->
+            <nav class="navbar" id="navbar"></nav>
+
+            <!-- Main Content -->
+            <div class="container">
+                <div class="page-header">
+                    <h1>Admin Claim Commands</h1>
+                    <p class="lead">Commands for server operators to create and manage admin claims.</p>
+                </div>
+
+                <div class="note-box">
+                    <h4>Admin Claims Overview</h4>
+                    <p>Admin claims can only be created by server operators using commands. They have their own configuration, separate from regular claims and can override global settings, including different values between length, height, and width.</p>
+                    <p>The protection rules in admin claims depend exclusively on which type they belong; each type follows its own rule and can be configured individually.</p>
+                </div>
+
+                <h2>Command Categories</h2>
+                <p>Admin claim commands are organized into the following categories:</p>
+                <ul>
+                    <li><a href="#create-commands">Create Commands</a></li>
+                    <li><a href="#modification-commands">Modification Commands</a></li>
+                    <li><a href="#information-commands">Information Commands</a></li>
+                </ul>
+
+                <h2 id="create-commands">1. Create Commands</h2>
+                <p>These commands are used to create new admin claims.</p>
+
+                <h3>Create Cubic Admin Claim</h3>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin create &lt;type&gt; &lt;anchor&gt; &lt;size&gt;</code></pre>
+                </div>
+                <p>Creates a cubic admin claim with equal length, width, and height.</p>
+                <h4>Parameters:</h4>
+                <ul>
+                    <li><code>type</code>: The claim type (from configured admin claim types)</li>
+                    <li><code>anchor</code>: The center block position (x y z)</li>
+                    <li><code>size</code>: The length of each side (1-29999999 blocks)</li>
+                </ul>
+                <h4>Example:</h4>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin create spawn ~ ~ ~ 50</code></pre>
+                </div>
+                <p>This creates a cubic admin claim of type "spawn" centered at your current position with dimensions 50×50×50 blocks.</p>
+
+                <h3>Create Parallelepipedal Admin Claim</h3>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin create &lt;type&gt; &lt;anchor&gt; &lt;length&gt; &lt;height&gt; &lt;width&gt;</code></pre>
+                </div>
+                <p>Creates an admin claim with custom dimensions.</p>
+                <h4>Parameters:</h4>
+                <ul>
+                    <li><code>type</code>: The claim type</li>
+                    <li><code>anchor</code>: The center block position</li>
+                    <li><code>length</code>: X-axis dimension</li>
+                    <li><code>height</code>: Y-axis dimension</li>
+                    <li><code>width</code>: Z-axis dimension</li>
+                </ul>
+                <h4>Example:</h4>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin create pvparena ~ ~ ~ 100 30 100</code></pre>
+                </div>
+                <p>This creates a parallelepipedal admin claim of type "pvparena" centered at your current position with dimensions 100×30×100 blocks (wide but not very tall).</p>
+
+                <h2 id="modification-commands">2. Modification Commands</h2>
+                <p>These commands are used to modify existing admin claims.</p>
+
+                <h3>Remove Admin Claim</h3>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin remove &lt;anchor&gt;</code></pre>
+                </div>
+                <p>Deletes an admin claim at the specified anchor position.</p>
+                <h4>Example:</h4>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin remove 100 64 200</code></pre>
+                </div>
+                <p>This removes the admin claim centered at coordinates 100, 64, 200.</p>
+
+                <h3>Change Claim Type</h3>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin change &lt;anchor&gt; &lt;new_type&gt;</code></pre>
+                </div>
+                <p>Changes the type of an existing admin claim while maintaining all other claim properties.</p>
+                <h4>Example:</h4>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin change 100 64 200 wilderness</code></pre>
+                </div>
+                <p>This changes the type of the admin claim at coordinates 100, 64, 200 to "wilderness".</p>
+
+                <h3>Relocate Claim Anchor</h3>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin relocate &lt;anchor&gt; &lt;new_anchor&gt;</code></pre>
+                </div>
+                <p>Moves an admin claim to a new anchor position while preserving all claim dimensions and settings.</p>
+                <h4>Example:</h4>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin relocate 100 64 200 150 64 250</code></pre>
+                </div>
+                <p>This moves the admin claim from coordinates 100, 64, 200 to coordinates 150, 64, 250.</p>
+
+                <h3>Resize Commands</h3>
+
+                <h4>Resize Cubic</h4>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin resize &lt;anchor&gt; &lt;size&gt;</code></pre>
+                </div>
+                <p>Resizes claim to equal dimensions in all axes.</p>
+                <h4>Example:</h4>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin resize 100 64 200 75</code></pre>
+                </div>
+                <p>This resizes the admin claim at coordinates 100, 64, 200 to be 75×75×75 blocks.</p>
+
+                <h4>Resize Parallelepipedal</h4>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin resize &lt;anchor&gt; &lt;length&gt; &lt;height&gt; &lt;width&gt;</code></pre>
+                </div>
+                <p>Resizes claim with custom dimensions for each axis.</p>
+                <h4>Example:</h4>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin resize 100 64 200 120 40 120</code></pre>
+                </div>
+                <p>This resizes the admin claim at coordinates 100, 64, 200 to be 120×40×120 blocks.</p>
+
+                <h2 id="information-commands">3. Information Commands</h2>
+                <p>These commands are used to get information about admin claims.</p>
+
+                <h3>List Admin Claims</h3>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin list</code></pre>
+                </div>
+                <p>Displays all active admin claims on the server.</p>
+
+                <h3>Get Admin Claim Info</h3>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin info &lt;anchor&gt;</code></pre>
+                </div>
+                <p>Shows detailed information about a specific admin claim.</p>
+                <h4>Example:</h4>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin info 100 64 200</code></pre>
+                </div>
+                <p>This displays information about the admin claim at coordinates 100, 64, 200.</p>
+
+                <h3>Open Config Screen</h3>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin config &lt;type&gt;</code></pre>
+                </div>
+                <p>Opens the configuration GUI for the specified claim type.</p>
+                <h4>Example:</h4>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/claimorous admin config spawn</code></pre>
+                </div>
+                <p>This opens the configuration GUI for the "spawn" claim type.</p>
+
+                <div class="note-box">
+                    <h4>Admin Claim Types Storage</h4>
+                    <p>Admin claim types are stored in the path <code>/config/claimorous_admin_claims/&lt;type&gt;.toml</code>. <br> <b>Importing/exporting them to other Minecraft instances will allow sharing admin claim types!</b></p>
+                </div>
+
+                <!-- placeholder admin claim config image
+                <div class="centered-image">
+                    <img src="assets/media/config-admin-claim.png" alt="General Config Screen">
+                    <p><em>Example of the general configuration screen for admin claims.</em></p>
+                </div> -->
+
+                <div class="nav-button-container">
+                    <!-- Previous page button -->
+                    <button
+                      class="btn btn-info"
+                      id="prev-button"
+                      onclick="window.location.href = 'views/player-claims/logging-settings.html'"
+                    >
+                      ⮜ &nbsp; Logging Settings
+                    </button>
+        
+                    <!-- Next page button -->
+                    <button
+                      class="btn btn-info"
+                      id="next-button"
+                      onclick="window.location.href = 'views/admin-claims/config.html'"
+                    >
+                      Configuration &nbsp; ⮞
+                    </button>
+                  </div>
+            </div>
+
+            <!-- Back to top button - loaded via JavaScript -->
+            <div id="back-to-top"></div>
+
+            <!-- Footer - loaded via JavaScript -->
+            <footer id="footer"></footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="scripts/components-loader.js"></script>
+    <script src="scripts/main.js"></script>
+
+</body>
+</html>

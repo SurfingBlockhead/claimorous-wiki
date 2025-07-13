@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Claim Configuration - Claimorous! Wiki</title>
+    <base href="/claimorous-wiki/" />
+    <link rel="icon" type="image/x-icon" href="assets/media/favicon.ico">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/highlight.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar - loaded via JavaScript -->
+        <nav id="sidebar"></nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <!-- Top Navigation - loaded via JavaScript -->
+            <nav class="navbar" id="navbar"></nav>
+
+            <!-- Main Content -->
+            <div class="container">
+                <div class="page-header">
+                    <h1>Admin Claim Configuration</h1>
+                    <p class="lead">Configure admin claim types and their protection settings.</p>
+                </div>
+
+                <div class="note-box">
+                    <h4>Admin Claim Types</h4>
+                    <p>Admin claims are organized by types, each with its own configuration file. You can set any type name you want such as spawn, wilderness, pvp-arena, shopping-district or any other custom type needed for your server.</p>
+                </div>
+
+                <h2>Configuration Files</h2>
+                <p>Each admin claim type has its own configuration file located at:</p>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-bash">/config/claimorous_admin_claims/&lt;type&gt;.toml</code></pre>
+                </div>
+                <p>For example, the "spawn" claim type configuration would be at <code>/config/claimorous_admin_claims/spawn.toml</code>.</p>
+
+                <h2>Creating New Admin Claim Types</h2>
+                <p>To create a new admin claim type:</p>
+                <ol>
+                    <li>Use the command: <code>/claimorous admin config &lt;new_type_name&gt;</code></li>
+                    <li>Configure the settings in the GUI that appears</li>
+                    <li>Save the configuration</li>
+                </ol>
+                <p>Alternatively, you can copy an existing type's TOML in the proper path or share them on <a href="https://discord.gg/6SM9WvgcY6" target="_blank" rel="noopener noreferrer">Discord!</a></p>
+
+                <h2>Configuration Options</h2>
+                <p>You can access to any admin claim type config GUI with the command 
+                    <code>/claimorous admin config &lt;type_name&gt;</code>
+                    <!--  <div class="code-block-wrapper">
+                    <pre><code class="language-toml"> -->
+                </p>
+                                
+                <h3>1. General Settings</h3>
+                <!-- insert image instead -->
+                <div class="centered-image">
+                    <img src="assets/media/example-admin-general-config.png" alt="Admin Claim Configuration">
+                    <p><em>Example of the general admin claim configuration screen in-game.</em></p>
+                </div>
+ <!--                <div class="code-block-wrapper">
+                    <pre><code class="language-toml">
+# [General Settings]
+
+# Display name shown in-game
+display_name = "Spawn Area"
+
+# Description shown when hovering over the claim type in-game
+description = "Protected spawn area with limited interactions"
+
+# Particle color for claim visualization (RGB format)
+particle_color = { r = 0, g = 255, b = 0 }
+
+# Whether to show this claim type in the list of claims
+visible_in_list = true
+
+</code></pre>
+                </div> -->
+
+                <h3>2. Block Protection</h3>
+                <p>Like in player claims <a href="views/player-claims/protection.html" target="_blank" rel="noopener noreferrer">settings</a>, admin claims can be configured to prevent or allow certain actions.</p>
+                <!-- insert image instead -->
+                <div class="centered-image">
+                    <img src="assets/media/example-admin-block-config.png" alt="Admin Claim Configuration">
+                    <p><em>Example of an admin claim type that allows players to interact only with an enchanting table</em></p>
+                </div>
+ 
+                <h3>3. PvP e Projectile Protection</h3>
+                 <!--insert image instead -->
+                <div class="centered-image">
+                    <img src="assets/media/example-admin-pvp-config.png" alt="Admin Claim Configuration">
+                    <p><em>Example of an admin claim type where PvP is allowed.</em></p>
+                </div>
+
+
+                <h3>4. Entity Protection</h3>
+                <!-- insert image instead -->
+                <div class="centered-image">
+                    <img src="assets/media/example-admin-entity-config.png" alt="Admin Claim Configuration">
+                    <p><em>Example of an admin claim type where villagers and wandering traders are the only entities that can be interacted with.</em></p>
+                </div>
+
+
+                <h3>5. Environment Protection</h3>
+                <!-- insert image instead -->
+                <div class="centered-image">
+                    <img src="assets/media/example-admin-env-config.png" alt="Admin Claim Configuration">
+                    <p><em>Example of an admin claim type where explosions are allowed.</em></p>
+                </div>
+
+                <h2>Example Configurations</h2>
+
+                <h3>Spawn HUB</h3>
+                <p>An example spawn area configuration might look like this: everything is protected except for chest, beds and doors. Book could also be used to read useful information.</p>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-toml"> 
+# [General Settings]
+
+# Claim Color
+claimColor = "#891E26"
+# Claim Border
+showClaimBorder = true
+# Permission System
+enablePermissionSystem = true
+
+# [Block and Item Protection Settings]
+
+preventBlockBreaking = true
+preventBlockBreakingExceptionsIds = []
+preventBlockBreakingExceptionsTags = []
+
+preventBlockPlacement = true
+preventBlockPlacementExceptionsIds = []
+preventBlockPlacementExceptionsTags = []
+
+preventBlockInteraction = true
+preventBlockInteractionExceptionsIds = [minecraft:chest]
+preventBlockInteractionExceptionsTags = [minecraft:doors, minecraft:beds]
+
+preventItemUse = true
+preventItemUseExceptionsIds = [minecraft:book]
+preventItemUseExceptionsTags = []
+
+
+# [PvP and Projectiles Protection Settings]
+
+# PvP Protection
+protectEveryonePvP = true
+
+# Projectiles Protection
+preventProjectileDamage = true
+showProjectileEffects = true
+
+
+# [Entity Protection Settings]
+entityProtectedFromAttack = true
+entityDamageProtectionExceptionsIds = []
+entityDamageProtectionExceptionsTags = []
+entityProtectedFromInteraction = true
+entityInteractionProtectionExceptionsIds = []
+entityInteractionProtectionExceptionsTags = []
+protectFromHostileMob = true
+
+
+# [Environment Protection Settings]
+
+preventFluidFlowIntoClaim = true
+
+# Fire Protection
+preventFireSpreadAcrossClaim = true
+
+# Explosion Protection
+preventExplosion = true
+showExplosionEffects = true
+
+# Piston Protection
+preventPistonInteraction = true
+
+# Dispenser Protection
+preventDispenserInteraction = true
+
+</code></pre>
+                </div>
+
+                <h3>PvP Arena</h3>
+                <p>A PvP arena configuration might look like this:</p>
+                <div class="code-block-wrapper">
+                    <pre><code class="language-toml">[general]
+# [General Settings]
+
+# Claim Color
+claimColor = "#FF0000"
+# Claim Border
+showClaimBorder = true
+# Permission System
+enablePermissionSystem = true
+
+# [Block and Item Protection Settings]
+
+preventBlockBreaking = true
+preventBlockBreakingExceptionsIds = []
+preventBlockBreakingExceptionsTags = []
+
+preventBlockPlacement = true
+preventBlockPlacementExceptionsIds = []
+preventBlockPlacementExceptionsTags = []
+
+preventBlockInteraction = true
+preventBlockInteractionExceptionsIds = []
+preventBlockInteractionExceptionsTags = []
+
+preventItemUse = true
+preventItemUseExceptionsIds = []
+preventItemUseExceptionsTags = []
+
+
+# [PvP and Projectiles Protection Settings]
+
+# PvP Protection
+protectEveryonePvP = false
+# Projectiles Protection
+preventProjectileDamage = false
+showProjectileEffects = false
+
+
+# [Entity Protection Settings]
+entityProtectedFromAttack = true
+entityDamageProtectionExceptionsIds = []
+entityDamageProtectionExceptionsTags = []
+entityProtectedFromInteraction = true
+entityInteractionProtectionExceptionsIds = []
+entityInteractionProtectionExceptionsTags = []
+protectFromHostileMob = true
+
+
+# [Environment Protection Settings]
+
+preventFluidFlowIntoClaim = true
+
+# Fire Protection
+preventFireSpreadAcrossClaim = true
+
+# Explosion Protection
+preventExplosion = true
+showExplosionEffects = true
+
+# Piston Protection
+preventPistonInteraction = true
+
+# Dispenser Protection
+preventDispenserInteraction = true
+
+]</code></pre>
+                </div>
+
+
+
+                <div class="warning-box">
+                    <h4>Important</h4>
+                    <p>Changes to admin claim configurations take effect immediately without requiring a server restart. However, it's recommended to make changes when there are no players online to avoid disruption.</p>
+                </div>
+
+                <h2>Importing and Exporting</h2>
+                <p>You can easily share admin claim configurations between servers by copying the TOML files. This is useful for maintaining consistent settings across multiple servers or for backup purposes.</p>
+                <p>To import a configuration:</p>
+                <ol>
+                    <li>Copy the TOML file to the <code>/config/claimorous_admin_claims/</code> directory</li>
+                    <li>You might need to restart your game.</li>
+                </ol>
+                <div class="note-box">
+                    <h4>Tip</h4>
+                    <p>Having problems with the configuration? Wish to share your claim config with the community? Join our <a href="https://discord.gg/claimorous" target="_blank" rel="noopener noreferrer">Discord server!</a></p>
+                </div>
+                <div class="nav-button-container">
+                    <!-- Previous page button -->
+                    <button
+                      class="btn btn-info"
+                      id="prev-button"
+                      onclick="window.location.href = 'views/admin-claims/commands.html'"
+                    >
+                      ⮜ &nbsp; Commands
+                    </button>
+        
+                    <!-- Next page button -->
+                    <button
+                      class="btn btn-info"
+                      id="next-button"
+                      onclick="window.location.href = 'views/troubleshooting.html'"
+                    >
+                      Troubleshooting &nbsp; ⮞
+                    </button>
+                  </div>
+            </div>
+
+            <!-- Back to top button - loaded via JavaScript -->
+            <div id="back-to-top"></div>
+
+            <!-- Footer - loaded via JavaScript -->
+            <footer id="footer"></footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="scripts/components-loader.js"></script>
+    <script src="scripts/main.js"></script>
+
+</body>
+</html>
